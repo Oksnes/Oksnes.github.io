@@ -1,0 +1,87 @@
+/* Det fleste av koden her er jo bjørnar sinn med litt endring */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #b4abab;
+}
+
+
+main {
+    width: 75%;
+    margin: 1rem auto;
+    background-color: #f4f4f4;
+    border: 4px solid rgb(54, 54, 54);
+}
+
+h1 {
+    color: #fff;
+    background-color: #333;
+    padding-left: 1rem;
+}
+
+h2 {
+    padding-left: 1rem;
+}
+
+#imgmargin {
+    margin-left: 3rem;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 1%;
+}
+
+p {
+    padding: 0 20px;
+    color: #333;
+}
+
+ol {
+    margin-left: 2rem;
+}
+
+ol li {
+    margin: 10px 0;
+}
+
+/* Meny */
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.active {
+    color: lime;
+}
+
