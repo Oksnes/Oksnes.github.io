@@ -62,3 +62,34 @@ nav ul li a{
 nav ul li a:hover{
     background-color:#6a6a6a;
 }
+
+.item3 {
+    background-color: white;
+    text-align: center;
+}
+
+main{
+    width: auto;
+    list-style: none;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+main div a{
+    text-decoration: none;
+    color: black;
+    padding: 1.5rem;
+    display: block;
+}
+
+.prosjekt{
+    border: 5px solid black;
+    border-radius: 10px;
+    width: 256px;
+    height: auto;
+    padding: 1rem;
+    margin: 10px;
+}
