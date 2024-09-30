@@ -65,3 +65,8 @@ nav ul li a:hover{
 .item3 {
     text-align: center;
 }
+
+main h1 {
+    background-color: rgb(39, 39, 39);
+    color: white;
+}
