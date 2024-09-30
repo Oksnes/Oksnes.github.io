@@ -36,8 +36,9 @@ html, body{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1rem solid;
-    margin-bottom: 10px;
+    border-bottom: 5px solid;
+    margin-bottom: 5px;
+    max-height: 100px;
 }
 
 .item2 {
