@@ -26,6 +26,12 @@ html, body{
     font-size: 4rem;
 }
 
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .grid-container > div {
     font-size: 1.5rem;
     padding: 1rem;
@@ -57,6 +63,7 @@ nav ul li a{
     color:white;
     padding:1.5rem;
     display: block;
+    font-size: 2rem;
 }
 
 nav ul li a:hover{
