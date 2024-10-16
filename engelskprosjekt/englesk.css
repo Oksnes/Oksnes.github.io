@@ -124,4 +124,14 @@ svg { /*Adujusting where the icons are*/
     .item3 .storboks video{ /*Makes the vid fit on a mobile device*/
         width: 400px;
     }
+
+    .anton-regular { /*text gets too big on mobile if its higher*/
+        font-size: 3.6rem;
+    }
+
+    svg{/*Icons get too big and missaligned on mobile if its higher*/
+        height: 48px;
+        width: 48px;
+        padding-top:60px ;
+    }
 }
