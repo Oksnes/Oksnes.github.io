@@ -41,10 +41,12 @@ html, body{
     text-align: center;
     display: flex;
     justify-content: center;
-    align-items: center;
-    border-bottom: 5px solid;
-    margin-bottom: 5px;
-    max-height: 100px;
+    align-items: top;
+    height: 400px;
+    background-image: url(../bilder/london.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgb(207, 12, 12) ;
 }
 
 .item2 {
@@ -89,6 +91,9 @@ nav ul li a:hover{
 main h1 {
     background-color: rgb(39, 39, 39);
     color: white;
+}
+svg {
+    padding-top: 60px;
 }
 
 @media screen and (max-width: 800px) {
