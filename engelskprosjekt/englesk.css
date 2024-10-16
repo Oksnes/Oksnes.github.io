@@ -131,13 +131,13 @@ svg { /*Adujusting where the icons are*/
     }
 
     .anton-regular { /*text gets too big on mobile if its higher*/
-        font-size: 3.5rem;
+        font-size: 3.3rem;
     }
 
     svg{/*Icons get too big and missaligned on mobile if its higher*/
         height: 48px;
         width: 48px;
-        padding-top:60px ;
+        padding-top:54px ;
     }
 
     .item1 h1 { /*Icons are smaller on mobile so less margin*/
