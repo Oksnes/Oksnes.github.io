@@ -9,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-color: rgb(59, 5, 33);
+    background-color: gray;
 }
 
 #spillvalg{
@@ -21,7 +21,7 @@ body{
     padding: 10px;
     border-radius: 5px;
     margin: 5px;
-    background: linear-gradient(rgb(196, 82, 82), #dda2a2);
+    background: linear-gradient(rgb(233, 36, 118), #740862);
     font-size: 5rem;
 }
 

@@ -13,13 +13,16 @@ function velgStein(){
     let tilfeldig = Math.floor(Math.random() * 3);
     if (tilfeldig === 0) {
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Stein UAVGJORT"
+        document.body.style.background = "rgb(59, 5, 33)"
     }
     else if (tilfeldig === 1){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Saks DU VANT"
+        document.body.style.background = "linear-gradient(rgb(11, 206, 11), rgb(11, 142, 11))"
         score=score+1
     }
     else if (tilfeldig === 2){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Papir DU TAPTE"
+        document.body.style.background = "linear-gradient(rgb(177, 21, 15), rgb(136, 12, 12))";
         liv=liv-1
     }
     document.getElementById("tekstboks2").innerHTML ="Du valgte " + valg
@@ -38,13 +41,16 @@ function valgSaks(){
     let tilfeldig = Math.floor(Math.random() * 3);
     if (tilfeldig === 0) {
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Stein DU TAPTE"
+        document.body.style.background = "linear-gradient(rgb(177, 21, 15), rgb(136, 12, 12))";
         liv=liv-1
     }
     else if (tilfeldig === 1){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Saks UAVGJORT"
+        document.body.style.background = "rgb(59, 5, 33)"
     }
     else if (tilfeldig === 2){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Papir DU VANT"
+        document.body.style.background = "linear-gradient(rgb(11, 206, 11), rgb(11, 142, 11))"
         score=score+1
     }
     document.getElementById("tekstboks2").innerHTML ="Du valgte " + valg
@@ -63,14 +69,17 @@ function valgPapir(){
     let tilfeldig = Math.floor(Math.random() * 3);
     if (tilfeldig === 0) {
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Stein DU VANT"
+        document.body.style.background = "linear-gradient(rgb(11, 206, 11), rgb(11, 142, 11))"
         score=score+1
     }
     else if (tilfeldig === 1){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Saks DU TAPTE"
+        document.body.style.background = "linear-gradient(rgb(177, 21, 15), rgb(136, 12, 12))";
         liv=liv-1
     }
     else if (tilfeldig === 2){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Papir UAVGJORT"
+        document.body.style.background = "rgb(59, 5, 33)"
     }
     document.getElementById("tekstboks2").innerHTML ="Du valgte " + valg
     document.getElementById("liv").innerHTML ="Du har: " + liv + " liv igjen"
