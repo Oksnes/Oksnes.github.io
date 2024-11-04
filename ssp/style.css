@@ -9,28 +9,40 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-color: gray;
+    background-color: rgb(109, 105, 105);
 }
 
 #spillvalg{
     display: flex;
     justify-content: center;
-    border: 5px solid black;
+    align-items: center;
+    border: 7.5px solid rgb(92, 26, 86);
+    filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
     width: 1200px;
     height: 400px;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 25px;
     margin: 5px;
-    background: linear-gradient(rgb(233, 36, 118), #740862);
+    background: linear-gradient(rgb(222, 100, 151), #604f68);
     font-size: 5rem;
+}
+
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #stein, #saks, #papir{
     margin: 20px;
+    transition: transform 0.3s ease-in-out;
+    filter: drop-shadow(0 0 10px rgb(255, 255, 255));
 }
 
 #stein:hover, #saks:hover, #papir:hover{
     cursor: pointer;
+    transform: scale(1.05, 1.05);
+    filter: drop-shadow(0 0 20px rgb(94, 6, 46));
 }
 
 #tekstbokser{
@@ -39,10 +51,10 @@ body{
     align-items: center;
     flex-wrap: nowrap;
 }
-#tekstboks, #tekstboks2, #liv, #score{
+#tekstboks, #tekstboks2, #liv, #score, #streak{
     padding: 10px;
     border: 2px solid black;
-    background: linear-gradient(rgb(94, 2, 45), rgb(54, 3, 22));
+    background: linear-gradient(rgb(122, 4, 59), rgb(54, 3, 22));
     border-radius: 5px;
     color: white;
     margin: 10px;

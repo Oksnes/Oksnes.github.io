@@ -4,6 +4,7 @@ let img_papir = document.getElementById("papir")
 
 let liv = 3
 let score = 0
+let streak = 0
 
 img_stein.addEventListener("click", velgStein);
 function velgStein(){
@@ -17,17 +18,20 @@ function velgStein(){
     }
     else if (tilfeldig === 1){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Saks DU VANT"
-        document.body.style.background = "linear-gradient(rgb(11, 206, 11), rgb(11, 142, 11))"
-        score=score+1
+        document.body.style.background = "linear-gradient(rgb(44, 231, 44), rgb(15, 106, 15))"
+        score=score+1;
+        streak = streak+1;
     }
     else if (tilfeldig === 2){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Papir DU TAPTE"
-        document.body.style.background = "linear-gradient(rgb(177, 21, 15), rgb(136, 12, 12))";
+        document.body.style.background = "linear-gradient(rgb(208, 42, 36), rgb(92, 8, 8))";
         liv=liv-1
+        streak = 0;
     }
     document.getElementById("tekstboks2").innerHTML ="Du valgte " + valg
     document.getElementById("liv").innerHTML ="Du har: " + liv + " liv igjen"
     document.getElementById("score").innerHTML ="Score: " + score
+    document.getElementById("streak").innerHTML ="Streak: " + streak
     if (liv === 0) {
         document.getElementById("spillvalg").innerHTML ="Du er ute av liv"
     }
@@ -41,8 +45,9 @@ function valgSaks(){
     let tilfeldig = Math.floor(Math.random() * 3);
     if (tilfeldig === 0) {
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Stein DU TAPTE"
-        document.body.style.background = "linear-gradient(rgb(177, 21, 15), rgb(136, 12, 12))";
+        document.body.style.background = "linear-gradient(rgb(208, 42, 36), rgb(92, 8, 8))";
         liv=liv-1
+        streak = 0;
     }
     else if (tilfeldig === 1){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Saks UAVGJORT"
@@ -50,12 +55,14 @@ function valgSaks(){
     }
     else if (tilfeldig === 2){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Papir DU VANT"
-        document.body.style.background = "linear-gradient(rgb(11, 206, 11), rgb(11, 142, 11))"
+        document.body.style.background = "linear-gradient(rgb(44, 231, 44), rgb(15, 106, 15))"
         score=score+1
+        streak = streak+1;
     }
     document.getElementById("tekstboks2").innerHTML ="Du valgte " + valg
     document.getElementById("liv").innerHTML ="Du har: " + liv + " liv igjen"
     document.getElementById("score").innerHTML ="Score: " + score
+    document.getElementById("streak").innerHTML ="Streak: " + streak
     if (liv === 0) {
         document.getElementById("spillvalg").innerHTML ="Du er ute av liv"
     }
@@ -69,13 +76,15 @@ function valgPapir(){
     let tilfeldig = Math.floor(Math.random() * 3);
     if (tilfeldig === 0) {
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Stein DU VANT"
-        document.body.style.background = "linear-gradient(rgb(11, 206, 11), rgb(11, 142, 11))"
+        document.body.style.background = "linear-gradient(rgb(44, 231, 44), rgb(15, 106, 15))"
         score=score+1
+        streak = streak+1;
     }
     else if (tilfeldig === 1){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Saks DU TAPTE"
-        document.body.style.background = "linear-gradient(rgb(177, 21, 15), rgb(136, 12, 12))";
+        document.body.style.background = "linear-gradient(rgb(208, 42, 36), rgb(92, 8, 8))";
         liv=liv-1
+        streak = 0;
     }
     else if (tilfeldig === 2){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Papir UAVGJORT"
@@ -84,9 +93,8 @@ function valgPapir(){
     document.getElementById("tekstboks2").innerHTML ="Du valgte " + valg
     document.getElementById("liv").innerHTML ="Du har: " + liv + " liv igjen"
     document.getElementById("score").innerHTML ="Score: " + score
+    document.getElementById("streak").innerHTML ="Streak: " + streak
     if (liv === 0) {
         document.getElementById("spillvalg").innerHTML ="Du er ute av liv"
     }
 }
-
-
