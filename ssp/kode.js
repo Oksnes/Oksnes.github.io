@@ -14,7 +14,7 @@ function velgStein(){
     let tilfeldig = Math.floor(Math.random() * 3);
     if (tilfeldig === 0) {
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Stein UAVGJORT"
-        document.body.style.background = "rgb(59, 5, 33)"
+        document.body.style.background = "darkblue"
     }
     else if (tilfeldig === 1){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Saks DU VANT"
@@ -34,6 +34,9 @@ function velgStein(){
     document.getElementById("streak").innerHTML ="Streak: " + streak
     if (liv === 0) {
         document.getElementById("spillvalg").innerHTML ="Du er ute av liv"
+        document.getElementById("spillvalg").style.background ="linear-gradient(rgb(140, 36, 77), #362c3a)"
+        document.getElementById("spillvalg").style.border ="7.5px solid rgb(73, 19, 69)"
+        document.body.style.background = "rgb(59, 5, 33)"
     }
 }
 
@@ -51,7 +54,7 @@ function valgSaks(){
     }
     else if (tilfeldig === 1){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Saks UAVGJORT"
-        document.body.style.background = "rgb(59, 5, 33)"
+        document.body.style.background = "darkblue"
     }
     else if (tilfeldig === 2){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Papir DU VANT"
@@ -65,6 +68,9 @@ function valgSaks(){
     document.getElementById("streak").innerHTML ="Streak: " + streak
     if (liv === 0) {
         document.getElementById("spillvalg").innerHTML ="Du er ute av liv"
+        document.getElementById("spillvalg").style.background ="linear-gradient(rgb(140, 36, 77), #362c3a)"
+        document.getElementById("spillvalg").style.border ="7.5px solid rgb(73, 19, 69)"
+        document.body.style.background = "rgb(59, 5, 33)"
     }
 }
 
@@ -88,13 +94,17 @@ function valgPapir(){
     }
     else if (tilfeldig === 2){
         document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Papir UAVGJORT"
-        document.body.style.background = "rgb(59, 5, 33)"
+        document.body.style.background = "darkblue"
     }
     document.getElementById("tekstboks2").innerHTML ="Du valgte " + valg
     document.getElementById("liv").innerHTML ="Du har: " + liv + " liv igjen"
     document.getElementById("score").innerHTML ="Score: " + score
     document.getElementById("streak").innerHTML ="Streak: " + streak
+    
     if (liv === 0) {
         document.getElementById("spillvalg").innerHTML ="Du er ute av liv"
+        document.getElementById("spillvalg").style.background ="linear-gradient(rgb(140, 36, 77), #362c3a)"
+        document.getElementById("spillvalg").style.border ="7.5px solid rgb(73, 19, 69)"
+        document.body.style.background = "rgb(59, 5, 33)"
     }
 }
