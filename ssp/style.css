@@ -25,6 +25,7 @@ body{
     margin: 5px;
     background: linear-gradient(rgb(222, 100, 151), #604f68);
     font-size: 5rem;
+    text-align: center;
 }
 
 .roboto-regular {
@@ -33,13 +34,13 @@ body{
     font-style: normal;
 }
 
-#stein, #saks, #papir{
+.stein, .saks, .papir{
     margin: 20px;
     transition: transform 0.3s ease-in-out;
     filter: drop-shadow(0 0 10px rgb(255, 255, 255));
 }
 
-#stein:hover, #saks:hover, #papir:hover{
+.stein:hover, .saks:hover, .papir:hover{
     cursor: pointer;
     transform: scale(1.05, 1.05);
     filter: drop-shadow(0 0 20px rgb(94, 6, 46));
@@ -49,9 +50,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
-#tekstboks, #tekstboks2, #liv, #score, #streak{
+#tekstboks, #scores{
     padding: 10px;
     border: 2px solid black;
     background: linear-gradient(rgb(122, 4, 59), rgb(54, 3, 22));

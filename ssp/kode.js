@@ -1,110 +1,128 @@
-let img_stein = document.getElementById("stein")
-let img_saks = document.getElementById("saks")
-let img_papir = document.getElementById("papir")
+let img_stein = document.querySelector(".stein")
+let img_saks = document.querySelector(".saks")
+let img_papir = document.querySelector(".papir")
 
-let liv = 3
-let score = 0
-let streak = 0
+img_stein.addEventListener("click", valgStein);
+img_saks.addEventListener("click", valgSaks);
+img_papir.addEventListener("click", valgPapir);
 
-img_stein.addEventListener("click", velgStein);
-function velgStein(){
-    let valg="stein"
-    console.log(valg);
+// let liv = 3;
+let valgbruker = "";
+let score = 0;
+let motstanderscore = 0;
+// let streak = 0;
+let runde = 0;
 
-    let tilfeldig = Math.floor(Math.random() * 3);
-    if (tilfeldig === 0) {
-        document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Stein UAVGJORT"
+
+function valgStein(){
+    valgbruker="stein"
+    console.log(valgbruker);
+    sjekkResultat();
+}
+
+
+function valgSaks(){
+    valgbruker="saks"
+    console.log(valgbruker);
+    sjekkResultat();
+}
+
+function valgPapir(){
+    valgbruker="papir"
+    console.log(valgbruker);
+    sjekkResultat();
+}
+
+function sjekkResultat() {
+    let valgDatamaskin = Math.floor(Math.random() * 3);
+    let arrayValg = ["stein", "saks", "papir"];
+    valgDatamaskin = arrayValg[valgDatamaskin];
+
+    let resultat ="";
+
+    if (valgbruker == valgDatamaskin) {
+        resultat = "Uavgjort!";
         document.body.style.background = "darkblue"
-    }
-    else if (tilfeldig === 1){
-        document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Saks DU VANT"
+
+    } else if (valgbruker == "stein" && valgDatamaskin == "saks" || 
+        valgbruker == "saks" && valgDatamaskin == "papir" || 
+        valgbruker == "papir" && valgDatamaskin == "stein") {
+        resultat = "Spelaren vant!";
         document.body.style.background = "linear-gradient(rgb(44, 231, 44), rgb(15, 106, 15))"
         score=score+1;
-        streak = streak+1;
-    }
-    else if (tilfeldig === 2){
-        document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Papir DU TAPTE"
+
+    } else {
+        resultat = "Datamaskina vant!";
+        motstanderscore++;
         document.body.style.background = "linear-gradient(rgb(208, 42, 36), rgb(92, 8, 8))";
-        liv=liv-1
-        streak = 0;
     }
-    document.getElementById("tekstboks2").innerHTML ="Du valgte " + valg
-    document.getElementById("liv").innerHTML ="Du har: " + liv + " liv igjen"
-    document.getElementById("score").innerHTML ="Score: " + score
-    document.getElementById("streak").innerHTML ="Streak: " + streak
-    if (liv === 0) {
-        document.getElementById("spillvalg").innerHTML ="Du er ute av liv"
-        document.getElementById("spillvalg").style.background ="linear-gradient(rgb(140, 36, 77), #362c3a)"
-        document.getElementById("spillvalg").style.border ="7.5px solid rgb(73, 19, 69)"
-        document.body.style.background = "rgb(59, 5, 33)"
+    runde++;
+    document.getElementById("scores").innerHTML = "Score bruker: " + score + " motstander score: " + motstanderscore
+    document.getElementById("tekstboks").innerHTML = resultat + " (Spelaren valte " + valgbruker + ", datamaskina valte " + valgDatamaskin + ")"; 
+    if (runde >= 3){
+        if (score > motstanderscore) {
+            document.getElementById("spillvalg").innerHTML ="DU VANT <br> trykk på space for å starte på nytt"
+        }
+        else if (score === motstanderscore){
+            document.getElementById("spillvalg").innerHTML ="UAVGJORT <br> trykk på space for å starte på nytt"
+        }
+        else if (score < motstanderscore) {
+            document.getElementById("spillvalg").innerHTML ="DU TAPTE <br> trykk på space for å starte på nytt"
+        }
+        img_stein.removeEventListener("click", valgStein);
+        img_saks.removeEventListener("click", valgSaks);
+        img_papir.removeEventListener("click", valgPapir);
     }
 }
 
-img_saks.addEventListener("click", valgSaks);
-function valgSaks(){
-    let valg="saks"
-    console.log(valg);
 
-    let tilfeldig = Math.floor(Math.random() * 3);
-    if (tilfeldig === 0) {
-        document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Stein DU TAPTE"
-        document.body.style.background = "linear-gradient(rgb(208, 42, 36), rgb(92, 8, 8))";
-        liv=liv-1
-        streak = 0;
-    }
-    else if (tilfeldig === 1){
-        document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Saks UAVGJORT"
-        document.body.style.background = "darkblue"
-    }
-    else if (tilfeldig === 2){
-        document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Papir DU VANT"
-        document.body.style.background = "linear-gradient(rgb(44, 231, 44), rgb(15, 106, 15))"
-        score=score+1
-        streak = streak+1;
-    }
-    document.getElementById("tekstboks2").innerHTML ="Du valgte " + valg
-    document.getElementById("liv").innerHTML ="Du har: " + liv + " liv igjen"
-    document.getElementById("score").innerHTML ="Score: " + score
-    document.getElementById("streak").innerHTML ="Streak: " + streak
-    if (liv === 0) {
-        document.getElementById("spillvalg").innerHTML ="Du er ute av liv"
-        document.getElementById("spillvalg").style.background ="linear-gradient(rgb(140, 36, 77), #362c3a)"
-        document.getElementById("spillvalg").style.border ="7.5px solid rgb(73, 19, 69)"
-        document.body.style.background = "rgb(59, 5, 33)"
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+        reset();
     }
 }
 
-img_papir.addEventListener("click", valgPapir);
-function valgPapir(){
-    let valg="papir"
-    console.log(valg);
+function reset() {
+    valgbruker = "";
+    score = 0;
+    motstanderscore = 0;
+    runde = 0;
 
-    let tilfeldig = Math.floor(Math.random() * 3);
-    if (tilfeldig === 0) {
-        document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Stein DU VANT"
-        document.body.style.background = "linear-gradient(rgb(44, 231, 44), rgb(15, 106, 15))"
-        score=score+1
-        streak = streak+1;
-    }
-    else if (tilfeldig === 1){
-        document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Saks DU TAPTE"
-        document.body.style.background = "linear-gradient(rgb(208, 42, 36), rgb(92, 8, 8))";
-        liv=liv-1
-        streak = 0;
-    }
-    else if (tilfeldig === 2){
-        document.getElementById("tekstboks").innerHTML ="Datamaskinen valgte Papir UAVGJORT"
-        document.body.style.background = "darkblue"
-    }
-    document.getElementById("tekstboks2").innerHTML ="Du valgte " + valg
-    document.getElementById("liv").innerHTML ="Du har: " + liv + " liv igjen"
-    document.getElementById("score").innerHTML ="Score: " + score
-    document.getElementById("streak").innerHTML ="Streak: " + streak
-    
-    if (liv === 0) {
-        document.getElementById("spillvalg").innerHTML ="Du er ute av liv"
-        document.getElementById("spillvalg").style.background ="linear-gradient(rgb(140, 36, 77), #362c3a)"
-        document.getElementById("spillvalg").style.border ="7.5px solid rgb(73, 19, 69)"
-        document.body.style.background = "rgb(59, 5, 33)"
-    }
+    document.body.style.background="rgb(109, 105, 105)"
+
+    let imgStein = document.createElement("img");
+    let imgSaks = document.createElement("img");
+    let imgPapir = document.createElement("img");
+    imgStein.src = "stein.svg";
+    imgSaks.src = "saks.svg";
+    imgPapir.src = "papir.svg";
+
+    imgStein.style.width = "400px";
+    imgSaks.style.width = "400px";
+    imgPapir.style.width = "300px";
+
+    imgStein.style.margin="20px"
+    imgSaks.style.margin="20px"
+    imgPapir.style.margin="20px"
+
+    imgStein.style.transition = "transform 0.3s ease-in-out;"
+    imgSaks.style.transition = "transform 0.3s ease-in-out;"
+    imgPapir.style.transition = "transform 0.3s ease-in-out;"
+
+    imgStein.style.filter = "drop-shadow(0 0 10px rgb(255, 255, 255));"
+    imgSaks.style.filter = "drop-shadow(0 0 10px rgb(255, 255, 255));"
+    imgPapir.style.filter = "drop-shadow(0 0 10px rgb(255, 255, 255));"
+
+    imgStein.style.cursor ="pointer"
+    imgSaks.style.cursor ="pointer"
+    imgPapir.style.cursor ="pointer"
+    // imgStein.setAttribute("class", stein)
+    document.getElementById("spillvalg").innerHTML= ""
+    document.getElementById("spillvalg").appendChild(imgStein);
+    document.getElementById("spillvalg").appendChild(imgSaks);
+    document.getElementById("spillvalg").appendChild(imgPapir);
+
+    imgStein.addEventListener("click", valgStein);
+    imgSaks.addEventListener("click", valgSaks);
+    imgPapir.addEventListener("click", valgPapir);
 }
