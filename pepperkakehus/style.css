@@ -61,11 +61,11 @@ p {
 
 @media screen and (max-width: 800px) {
     .elev{
-        width: 50px;
-        height: 67px;
+        width: 40px;
+        height: 54px;
     }
     img {
-        width: 50px;
+        width: 40px;
     }
 
 }
