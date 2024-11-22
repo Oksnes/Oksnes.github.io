@@ -59,3 +59,13 @@ main{
 p {
     font-size: 1.8rem;
 }
+
+@media screen and (max-width: 800px) {
+    .elev{
+        width: 75px;
+        height: 100px;
+    }
+    img {
+        width: 75px;
+    }
+}
