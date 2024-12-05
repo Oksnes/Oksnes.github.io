@@ -1,0 +1,71 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.head{ grid-area: header;}
+.paiside{ grid-area: main; }
+.middleside{ grid-area: footer; }
+.butikkside{ grid-area: meny; }
+.footerreal{ grid-area: feet;}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        'header  header header  header header'
+        'main    footer footer  meny   meny'
+        'feet    feet   feet    feet   feet'; 
+}
+
+.grid-container > div{
+    width:100%;
+    padding-bottom: 50px;
+}
+
+.head{
+    height: 150px;
+    text-align: center;
+    background: linear-gradient(90deg, rgb(27, 57, 81), rgb(64, 120, 166),rgb(78, 144, 198),rgb(78, 144, 198),rgb(64, 120, 166),rgb(27, 57, 81));
+    border-bottom: 10px rgb(101, 60, 19) solid;
+    font-size: 1.5rem;
+}
+.head h2{
+    color:red;
+}
+
+
+.roboto-regular {
+    font-family: "Roboto", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+.paiside {
+    background: linear-gradient(rgb(46, 86, 118),rgb(35, 70, 99));
+    /* padding:100px; */
+    
+    text-align: center;
+    border-bottom: 10px rgb(101, 60, 19) solid;
+}
+.paiside img{
+    filter: drop-shadow(0 0 5px rgb(241, 216, 198));
+}
+
+.middleside{
+    background:linear-gradient(rgb(126, 98, 70), rgb(122, 88, 56));
+    border-bottom: 10px rgb(101, 60, 19) solid;
+}
+
+.butikkside{
+    background:linear-gradient(rgb(219, 219, 0), rgb(219, 143, 2));
+    border-bottom: 10px rgb(101, 60, 19) solid;
+}
+
+.footerreal{
+    background: rgb(122, 91, 37);
+    height: 10vh;
+}
