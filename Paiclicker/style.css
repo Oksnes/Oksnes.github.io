@@ -6,7 +6,7 @@ html, body{
 
 .head{ grid-area: header;}
 .paiside{ grid-area: main; }
-.middleside{ grid-area: footer; }
+.middleside{ grid-area: mid; }
 .butikkside{ grid-area: meny; }
 .footerreal{ grid-area: feet;}
 
@@ -16,7 +16,7 @@ html, body{
     grid-template-rows: auto auto auto;
     grid-template-areas: 
         'header  header header  header header'
-        'main    footer footer  meny   meny'
+        'main    mid    mid     meny   meny'
         'feet    feet   feet    feet   feet'; 
 }
 
@@ -63,6 +63,24 @@ html, body{
 .butikkside{
     background:linear-gradient(rgb(219, 219, 0), rgb(219, 143, 2));
     border-bottom: 10px rgb(101, 60, 19) solid;
+}
+
+.butikkside > div{
+    background: linear-gradient(gray,lightgray);
+    border: darkslategray 5px solid;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.butikkside > div > button{
+    width:100px;
+    font-size: xx-large;
+    background: linear-gradient(white,rgb(246, 180, 180));
+}
+
+.butikkside > div > button:hover{
+    cursor: pointer;
 }
 
 .footerreal{
