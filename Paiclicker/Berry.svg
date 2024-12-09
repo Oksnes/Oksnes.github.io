@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87.59 118.09">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #009444;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #009444;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 5px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: #00a651;
+      }
+
+      .cls-3 {
+        fill: #ef4136;
+        stroke: #be1e2d;
+      }
+
+      .cls-4 {
+        fill: #fff200;
+        stroke: #fff200;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer_1">
+    <circle class="cls-3" cx="43.79" cy="74.29" r="41.29"/>
+    <rect class="cls-2" x="14.8" y="27.92" width="3.96" height="28.89" rx="1.2" ry="1.2" transform="translate(-14.86 75.17) rotate(-114.43)"/>
+    <rect class="cls-2" x="64.12" y="27.28" width="4.82" height="29.95" rx="1.4" ry="1.4" transform="translate(-2.42 80.44) rotate(-61.4)"/>
+    <rect class="cls-2" x="31.06" y="31.57" width="4.79" height="26.39" rx="1.4" ry="1.4" transform="translate(43.45 -10.22) rotate(47.08)"/>
+    <rect class="cls-2" x="47.97" y="33.24" width="4.64" height="24.99" rx="1.4" ry="1.4" transform="translate(-17.16 37.27) rotate(-35.14)"/>
+    <rect class="cls-2" x="38.8" y="21.57" width="4.71" height="29.42" rx="1.2" ry="1.2" transform="translate(8.06 80.03) rotate(-94.29)"/>
+    <rect class="cls-1" x="40.27" y="2.49" width="7.5" height="30.9" rx="1.4" ry="1.4" transform="translate(79.66 49.39) rotate(-160.75)"/>
+    <rect class="cls-4" x="49.21" y="87.04" width="4.93" height="9.41" rx="1.4" ry="1.4" transform="translate(52.79 -13.54) rotate(30)"/>
+    <rect class="cls-4" x="15" y="66.84" width="4.93" height="9.21" rx="1.4" ry="1.4" transform="translate(-40.69 26.42) rotate(-38.51)"/>
+    <rect class="cls-4" x="38.95" y="64.09" width="4.93" height="10.11" rx="1.4" ry="1.4" transform="translate(11.61 -5.74) rotate(9.22)"/>
+    <rect class="cls-4" x="64.58" y="69.49" width="4.93" height="10.19" rx="1.4" ry="1.4" transform="translate(15.92 -11.69) rotate(11.31)"/>
+    <rect class="cls-4" x="27.4" y="87.05" width="4.93" height="9.16" rx="1.4" ry="1.4" transform="translate(118.22 130.1) rotate(131.58)"/>
+  </g>
+</svg>
