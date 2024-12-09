@@ -52,13 +52,39 @@ html, body{
     border-bottom: 10px rgb(101, 60, 19) solid;
 }
 .paiside img{
-    filter: drop-shadow(0 0 5px rgb(241, 216, 198));
+    transition: transform 0.3s ease-in-out;
+    filter: drop-shadow(0 0 10px rgb(241, 216, 198));
+}
+
+.paiside img:hover{
+    transform: scale(1.1,1.1);
+    cursor:pointer;
 }
 
 .middleside{
     background:linear-gradient(rgb(126, 98, 70), rgb(122, 88, 56));
     border-bottom: 10px rgb(101, 60, 19) solid;
 }
+
+.middleside > div{
+    background: linear-gradient(rgb(112, 176, 180),rgb(88, 224, 234)); 
+    border: darkslategray 5px solid;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.middleside > div > button{
+    width:100px;
+    font-size: xx-large;
+    background: linear-gradient(white,rgb(97, 215, 236));
+}
+
+.middleside > div > button:hover{
+    cursor: pointer;
+}
+
+
 
 .butikkside{
     background:linear-gradient(rgb(219, 219, 0), rgb(219, 143, 2));
