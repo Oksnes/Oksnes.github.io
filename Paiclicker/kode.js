@@ -37,9 +37,9 @@ upgrade7.addEventListener("click", buylogarithm)
 let paitotal=Math.floor(0); //denne er for kjøping
 let paipersekundbase=0;
 
-let eating = new Audio("eatingsfx.mp3");
-let eatinglouder = new Audio("eatingsfxhigher.mp3")
-let eatingquiet = new Audio("eatingsfxlower.mp3")
+let eating = new Audio("media/eatingsfx.mp3");
+let eatinglouder = new Audio("media/eatingsfxhigher.mp3")
+let eatingquiet = new Audio("media/eatingsfxlower.mp3")
 let soundchoice = 3
 
 let totalclicks = 0;

@@ -57,12 +57,21 @@ html, body{
     cursor:pointer;
 }
 
+h2{
+    color: green;
+}
+
 .middleside{
     background:linear-gradient(rgb(126, 98, 70), rgb(122, 88, 56));
     border-bottom: 10px rgb(101, 60, 19) solid;
     overflow-y:auto;
     height: 614px;
     text-align: center;
+}
+
+.middleside img, .butikkside img {
+    height: 100px;
+    width: 100px;
 }
 
 .middleside > div{
@@ -72,10 +81,12 @@ html, body{
     display: flex;
     justify-content: space-between;
     padding: 5px;
+    align-items: center;
 }
 
 .middleside > div > button{
     width:100px;
+    height:100px;
     font-size: xx-large;
     background: linear-gradient(white,rgb(97, 215, 236));
 }
@@ -99,10 +110,12 @@ html, body{
     display: flex;
     justify-content: space-between;
     padding: 5px;
+    align-items: center;
 }
 
 .butikkside > div > button{
     width:100px;
+    height:100px;
     font-size: xx-large;
     background: linear-gradient(white,rgb(246, 180, 180));
 }
