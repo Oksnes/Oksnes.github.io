@@ -20,11 +20,6 @@ html, body{
         'feet    feet   feet    feet   feet'; 
 }
 
-.grid-container > div{
-    width:100%;
-    padding-bottom: 50px;
-}
-
 .head{
     height: 150px;
     text-align: center;
@@ -51,6 +46,7 @@ html, body{
     text-align: center;
     border-bottom: 10px rgb(101, 60, 19) solid;
 }
+
 .paiside img{
     transition: transform 0.3s ease-in-out;
     filter: drop-shadow(0 0 10px rgb(241, 216, 198));
@@ -65,7 +61,8 @@ html, body{
     background:linear-gradient(rgb(126, 98, 70), rgb(122, 88, 56));
     border-bottom: 10px rgb(101, 60, 19) solid;
     overflow-y:auto;
-    height: 567px;
+    height: 614px;
+    text-align: center;
 }
 
 .middleside > div{
@@ -74,6 +71,7 @@ html, body{
     height: 100px;
     display: flex;
     justify-content: space-between;
+    padding: 5px;
 }
 
 .middleside > div > button{
@@ -86,13 +84,12 @@ html, body{
     cursor: pointer;
 }
 
-
-
 .butikkside{
     background:linear-gradient(rgb(219, 219, 0), rgb(219, 143, 2));
     border-bottom: 10px rgb(101, 60, 19) solid;
     overflow-y:auto;
-    height: 567px;
+    height: 614px;
+    text-align: center;
 }
 
 .butikkside > div{
@@ -101,6 +98,7 @@ html, body{
     height: 100px;
     display: flex;
     justify-content: space-between;
+    padding: 5px;
 }
 
 .butikkside > div > button{
@@ -115,10 +113,11 @@ html, body{
 
 .footerreal{
     background: rgb(122, 91, 37);
-    height: 11vh;
+    height: 19.5vh;
 }
 
 .footerreal > div{
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
 }

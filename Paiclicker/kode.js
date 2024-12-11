@@ -31,22 +31,29 @@ upgrade5.addEventListener("click", buyrollingpin)
 let upgrade6 = document.getElementById("timespeedshop")
 upgrade6.addEventListener("click", buytimespeed)
 
+let upgrade7 = document.getElementById("logarithmshop")
+upgrade7.addEventListener("click", buylogarithm)
+
 let paitotal=Math.floor(0); //denne er for kjøping
 let paipersekundbase=0;
 
-
+let eating = new Audio("eatingsfx.mp3");
+let eatinglouder = new Audio("eatingsfxhigher.mp3")
+let eatingquiet = new Audio("eatingsfxlower.mp3")
+let soundchoice = 3
 
 let totalclicks = 0;
 let highestpie = 0;
 let totalpie = 0; //denne er for stats
+let buyablesbought = 0;
 
-let clickmultiplier = 0; //multiplier av musen DIN
+let clickmultiplier = 1; //multiplier av musen DIN
 let totalmultiplier = 1; //multiplier av ALT SAMMEN
 let timespeed = 1;
+let logarithmboost = 0
 
 let clickers=0; //total av clickers
-let clickerscost=10; //hvor mye de koster
-let clickerboost=0 //base boost
+let clickerscost=25; //hvor mye de koster
 
 let berries=0;
 let berriescost=50;
@@ -62,13 +69,36 @@ let hveteboost=0; //base boost
 let hveteboosted=1; //får å multiplisere boosten
 
 function paiclick(){
-    paitotal=paitotal+(1+clickmultiplier)*totalmultiplier //denne er for kjøping
-    totalpie=totalpie+(1+clickmultiplier)*totalmultiplier //denne er for stats
-    totalclicks = totalclicks+1;
 
-    document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
-    document.getElementById("statsclick").innerText = "Clicks: "+ totalclicks
-    document.getElementById("statstotalscore").innerText = "Total pies: "+ Math.floor(totalpie)
+    if (logarithmboost==0) {
+        paitotal=paitotal+(1*clickmultiplier)*totalmultiplier //denne er for kjøping
+        totalpie=totalpie+(1*clickmultiplier)*totalmultiplier //denne er for stats
+        totalclicks = totalclicks+1;
+        document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
+        document.getElementById("statsclick").innerText = "Clicks: "+ totalclicks
+        document.getElementById("statstotalscore").innerText = "Total pies: "+ Math.floor(totalpie)
+    } else if (logarithmboost==1){
+        paitotal=paitotal+((1*clickmultiplier)*totalmultiplier)*(1+Math.log10(paitotal)) //denne er for kjøping
+        totalpie=totalpie+((1*clickmultiplier)*totalmultiplier)*(1+Math.log10(paitotal)) //denne er for stats
+        totalclicks = totalclicks+1;
+        document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
+        document.getElementById("statsclick").innerText = "Clicks: "+ totalclicks
+        document.getElementById("statstotalscore").innerText = "Total pies: "+ Math.floor(totalpie)
+    }
+
+
+    soundchoice = Math.floor(Math.random(3))
+    if (soundchoice==0){
+        eating.play()
+    } else if (soundchoice==1) {
+        eatinglouder.play()
+    } else if (soundchoice==2){
+        eatingquiet.play()
+    } else {
+        eating.play()
+    }
+
+
     if (highestpie<=paitotal) {
         highestpie=paitotal;
         document.getElementById("statshighscore").innerText= "Highest pie: "+ Math.floor(highestpie)
@@ -79,13 +109,14 @@ function buyclicker(){
     if (paitotal>=clickerscost){
         clickers=clickers+1
         paitotal=paitotal-clickerscost
-        clickerscost=Math.floor(clickerscost*1.12);
-
-        clickerboost=clickerboost+0.5
+        clickerscost=Math.floor(clickerscost*1.35);
+        clickmultiplier=clickmultiplier*1.05
+        buyablesbought=buyablesbought+1
         
         document.getElementById("clickerstall").innerText = "CLICKERS: "+ clickers
         document.getElementById("clickershowcost").innerText = "COST: " + Math.floor(clickerscost)
         document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
+        document.getElementById("statsbought").innerText = "Buyables bought: "+ buyablesbought
     }
 }
 
@@ -95,10 +126,12 @@ function buyberries(){
         paitotal=paitotal-berriescost
         berriescost=Math.floor(berriescost*1.5)
         totalmultiplier=totalmultiplier*1.1
+        buyablesbought=buyablesbought+1
         
         document.getElementById("berriestall").innerText = "BERRIES: "+ berries
         document.getElementById("berriesshowcost").innerText = "COST: " + Math.floor(berriescost)
         document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
+        document.getElementById("statsbought").innerText = "Buyables bought: "+ buyablesbought
     }
 }
 
@@ -108,10 +141,12 @@ function buygrandpa(){
         paitotal=paitotal-bestefarcost
         bestefarcost=Math.floor(bestefarcost*1.15)
         bestefarboost=bestefarboost+3
+        buyablesbought=buyablesbought+1
         
         document.getElementById("grandpastall").innerText = "GRANDPAS: "+ bestefarer
         document.getElementById("grandpashowcost").innerText = "COST: " + Math.floor(bestefarcost)
         document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
+        document.getElementById("statsbought").innerText = "Buyables bought: "+ buyablesbought
     }
 }
 
@@ -120,14 +155,14 @@ function buyhvete(){
         hvete=hvete+1
         paitotal=paitotal-hvetecost
         hvetecost=Math.floor(hvetecost*1.17)
-
         hveteboost=hveteboost+25
+        buyablesbought=buyablesbought+1
         
         document.getElementById("hvetetall").innerText = "WHEAT: "+ hvete
         document.getElementById("hveteshowcost").innerText = "COST: " + Math.floor(hvetecost)
         document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
+        document.getElementById("statsbought").innerText = "Buyables bought: "+ buyablesbought
     }
-
 }
 
 
@@ -174,7 +209,7 @@ function buywalkingstick(){
     if (paitotal>=7500){
         bestefarboosted=bestefarboosted*2
         paitotal=paitotal-7500
-        upgrade5.removeEventListener("click", buywalkingstick)
+        upgrade4.removeEventListener("click", buywalkingstick)
 
         document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
         document.getElementById("walkingstickcost").innerText = "BOUGHT!"
@@ -200,7 +235,7 @@ function buytimespeed(){
     if (paitotal>=50000){
         timespeed=timespeed*1.5
         paitotal=paitotal-50000
-        upgrade5.removeEventListener("click", buytimespeed)
+        upgrade6.removeEventListener("click", buytimespeed)
 
         document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
         document.getElementById("timespeedcost").innerText = "BOUGHT!"
@@ -209,30 +244,54 @@ function buytimespeed(){
     }
 }
 
+function buylogarithm(){
+    if (paitotal>=1000000){
+        logarithmboost=logarithmboost+1;
+        paitotal=paitotal-1000000
+        upgrade7.removeEventListener("click", buylogarithm)
+
+        document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
+        document.getElementById("logarithmcost").innerText = "BOUGHT!"
+        document.getElementById("logarithmshop").style.display="none"
+        document.getElementById("upgradeshop7").style.background= "linear-gradient(rgb(78, 104, 105),rgb(67, 171, 179))"
+    }
+}
+
 
 let timer =1000/timespeed
 setInterval(myTimer, timer);
 
 function myTimer(){
-    paipersekundbase = clickerboost + (bestefarboost*bestefarboosted) + (hveteboost*hveteboosted)
-    let paipersekund = (paipersekundbase*totalmultiplier)
-    paitotal=paitotal+paipersekund  //denne er for kjøping
-    totalpie=totalpie+paipersekund  //Denne er for stats
+    if (logarithmboost==0){
+        paipersekundbase = ((bestefarboost*bestefarboosted) + (hveteboost*hveteboosted))
+        let paipersekund = (paipersekundbase*totalmultiplier)
+        paitotal=paitotal+paipersekund  //denne er for kjøping
+        totalpie=totalpie+paipersekund  //Denne er for stats
+        document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
+        document.getElementById("paipersecond").innerText = "Making: "+ Math.floor(paipersekund *timespeed) + " pies/s"
+        document.getElementById("statstotalscore").innerText = "Total pies: "+ Math.floor(totalpie)
+    } else if (logarithmboost==1) {
+        paipersekundbase = ((bestefarboost*bestefarboosted) + (hveteboost*hveteboosted))*(1+Math.log50(paitotal))
+        let paipersekund = (paipersekundbase*totalmultiplier)
+        paitotal=paitotal+paipersekund  //denne er for kjøping
+        totalpie=totalpie+paipersekund  //Denne er for stats
+        document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
+        document.getElementById("paipersecond").innerText = "Making: "+ Math.floor(paipersekund *timespeed) + " pies/s"
+        document.getElementById("statstotalscore").innerText = "Total pies: "+ Math.floor(totalpie)
+    }
 
-    document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
-    document.getElementById("paipersecond").innerText = "Making: "+ Math.floor(paipersekund *timespeed) + " pies/s"
-    document.getElementById("statstotalscore").innerText = "Total pies: "+ Math.floor(totalpie)
+
+
     if (highestpie<=paitotal) {
         highestpie=paitotal;
         document.getElementById("statshighscore").innerText= "Highest pie: "+ Math.floor(highestpie)
     }
 }
 
-
 // NOT FOR FINAL RELEASE UNDER HERE
 
-document.body.onkeyup = function(){
-    // if(e.keyCode == 32){
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
         paitotal=paitotal+10000*totalmultiplier
         totalpie=totalpie+10000*totalmultiplier
         if (highestpie<=paitotal) {
@@ -242,6 +301,6 @@ document.body.onkeyup = function(){
         document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
         document.getElementById("statstotalscore").innerText = "Total pies: "+ Math.floor(totalpie)
         document.getElementById("statshighscore").innerText= "Highest pie: "+ Math.floor(highestpie)
-    // }
+    }
 }
 
