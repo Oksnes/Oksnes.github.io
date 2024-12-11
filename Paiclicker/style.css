@@ -61,12 +61,27 @@ h2{
     color: green;
 }
 
-.middleside{
+.middleside >.shoptop {
+    display: flex;
+    justify-self: center;
+    width:200px;
+    background: linear-gradient(red, orange)
+}
+
+.butikkside > .shoptop {
+    display: flex;
+    justify-self: center;
+    width:200px;
+    background: linear-gradient(red, orange)
+}
+
+.middleside, .butikkside{
     background:linear-gradient(rgb(126, 98, 70), rgb(122, 88, 56));
     border-bottom: 10px rgb(101, 60, 19) solid;
     overflow-y:auto;
     height: 614px;
     text-align: center;
+    
 }
 
 .middleside img, .butikkside img {
@@ -95,14 +110,6 @@ h2{
     cursor: pointer;
 }
 
-.butikkside{
-    background:linear-gradient(rgb(219, 219, 0), rgb(219, 143, 2));
-    border-bottom: 10px rgb(101, 60, 19) solid;
-    overflow-y:auto;
-    height: 614px;
-    text-align: center;
-}
-
 .butikkside > div{
     background: linear-gradient(gray,lightgray);
     border: darkslategray 5px solid;
@@ -123,6 +130,8 @@ h2{
 .butikkside > div > button:hover{
     cursor: pointer;
 }
+
+
 
 .footerreal{
     background: rgb(122, 91, 37);
