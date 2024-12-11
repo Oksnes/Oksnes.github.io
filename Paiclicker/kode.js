@@ -303,4 +303,3 @@ document.body.onkeyup = function(e){
         document.getElementById("statshighscore").innerText= "Highest pie: "+ Math.floor(highestpie)
     }
 }
-

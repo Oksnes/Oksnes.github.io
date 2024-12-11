@@ -97,6 +97,7 @@ h2{
     justify-content: space-between;
     padding: 5px;
     align-items: center;
+    
 }
 
 .middleside > div > button{
@@ -104,10 +105,12 @@ h2{
     height:100px;
     font-size: xx-large;
     background: linear-gradient(white,rgb(97, 215, 236));
+    transition: transform 0.3s ease-in-out;
 }
 
 .middleside > div > button:hover{
     cursor: pointer;
+    transform: scale(1.1,1.1);
 }
 
 .butikkside > div{
@@ -125,10 +128,12 @@ h2{
     height:100px;
     font-size: xx-large;
     background: linear-gradient(white,rgb(246, 180, 180));
+    transition: transform 0.3s ease-in-out;
 }
 
 .butikkside > div > button:hover{
     cursor: pointer;
+    transform: scale(1.1,1.1);
 }
 
 
