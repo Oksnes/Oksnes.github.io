@@ -45,6 +45,7 @@ html, body{
     
     text-align: center;
     border-bottom: 10px rgb(101, 60, 19) solid;
+    padding: 20px;
 }
 
 .paiside img{
@@ -65,7 +66,7 @@ h2{
     display: flex;
     justify-self: center;
     width:200px;
-    background: linear-gradient(red, orange)
+    background: linear-gradient(red, orange);
 }
 
 .butikkside > .shoptop {
@@ -106,6 +107,7 @@ h2{
     font-size: xx-large;
     background: linear-gradient(white,rgb(97, 215, 236));
     transition: transform 0.3s ease-in-out;
+    border: 4px blue solid;
 }
 
 .middleside > div > button:hover{
@@ -129,6 +131,7 @@ h2{
     font-size: xx-large;
     background: linear-gradient(white,rgb(246, 180, 180));
     transition: transform 0.3s ease-in-out;
+    border: 4px red solid;
 }
 
 .butikkside > div > button:hover{
@@ -141,6 +144,10 @@ h2{
 .footerreal{
     background: rgb(122, 91, 37);
     height: 19.5vh;
+}
+
+.footerreal > h1{
+    margin-left: 10px;
 }
 
 .footerreal > div{

@@ -271,7 +271,7 @@ function myTimer(){
         document.getElementById("paipersecond").innerText = "Making: "+ Math.floor(paipersekund *timespeed) + " pies/s"
         document.getElementById("statstotalscore").innerText = "Total pies: "+ Math.floor(totalpie)
     } else if (logarithmboost==1) {
-        paipersekundbase = ((bestefarboost*bestefarboosted) + (hveteboost*hveteboosted))*(1+Math.log50(paitotal))
+        paipersekundbase = ((bestefarboost*bestefarboosted) + (hveteboost*hveteboosted))*(1+Math.log10(paitotal))
         let paipersekund = (paipersekundbase*totalmultiplier)
         paitotal=paitotal+paipersekund  //denne er for kjøping
         totalpie=totalpie+paipersekund  //Denne er for stats
@@ -284,22 +284,6 @@ function myTimer(){
 
     if (highestpie<=paitotal) {
         highestpie=paitotal;
-        document.getElementById("statshighscore").innerText= "Highest pie: "+ Math.floor(highestpie)
-    }
-}
-
-// NOT FOR FINAL RELEASE UNDER HERE
-
-document.body.onkeyup = function(e){
-    if(e.keyCode == 32){
-        paitotal=paitotal+10000*totalmultiplier
-        totalpie=totalpie+10000*totalmultiplier
-        if (highestpie<=paitotal) {
-            highestpie=paitotal;
-            document.getElementById("statshighscore").innerText= "Highest pie: "+ Math.floor(highestpie)
-        }
-        document.getElementById("paicurrent").innerText = "Pies: "+ Math.floor(paitotal)
-        document.getElementById("statstotalscore").innerText = "Total pies: "+ Math.floor(totalpie)
         document.getElementById("statshighscore").innerText= "Highest pie: "+ Math.floor(highestpie)
     }
 }
