@@ -4,10 +4,12 @@ html, body{
     padding: 0;
 }
 
-.item1{ grid-area: header; }
-.item2{ grid-area: meny;}
-.item3{ grid-area: main;}
-.item4{ grid-area: footer;}
+#item1{ grid-area: header; }
+#item2{ grid-area: meny;}
+#item3{ grid-area: main;}
+#item4{ grid-area: footer;}
+
+
 
 .grid-container {
     display: grid;
@@ -30,7 +32,7 @@ html, body{
     padding: 1rem;
 }
 
-.item1 {
+#item1 {
     background: linear-gradient(270deg, #eaa052, #f5af64);
     color: white;
     text-align: center;
@@ -39,7 +41,7 @@ html, body{
     align-items: center;
 }
 
-.item2 {
+#item2 {
     background-color:#787878;
 }
 
@@ -63,7 +65,7 @@ nav ul li a:hover{
     background-color:#6a6a6a;
 }
 
-.item3 {
+#item3 {
     text-align: center;
 }
 

@@ -9,7 +9,7 @@ body {
     color: white;
 }
 
-#upgrp2, #buybp1, #buybp2{
+#upgrp2, #buybp1, #buybp2, #rlayer{
     display: none;
 }
 
@@ -75,3 +75,6 @@ button:hover{
     transform: scale(1.1,1.1);
 }
 
+#rlayer{
+    margin:10px;
+}
