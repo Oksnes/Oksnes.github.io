@@ -9,25 +9,29 @@ body {
     color: white;
 }
 
+#upgrp2, #buybp1, #buybp2{
+    display: none;
+}
+
 #header{ grid-area: header;}
 #row1{ grid-area: row1;}
 #row2{ grid-area: row2;}
 #row3{ grid-area: row3;}
-#row4{ grid-area: row4;}
-#row5{ grid-area: row5;}
+/* #row4{ grid-area: row4;}  <!--IF I WANT TO CONTINUE IT LATER-->
+#row5{ grid-area: row5;} <!--IF I WANT TO CONTINUE IT LATER-->*/   
 
 
 .grid-container{
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: 2fr repeat(5, auto);
+    grid-template-rows: repeat(4, auto);
     grid-template-areas: 
         'header'
         'row1'
         'row2'
-        'row3'
-        'row4'
-        'row5'; 
+        'row3';
+        /* 'row4'
+        'row5';  */
 }
 
 #header{
@@ -57,3 +61,17 @@ body {
     font-size: 1rem;
     justify-self:center ;
 }
+
+button {
+    background-color: rgb(187, 185, 185);
+    border: 0;
+    height: 25px;
+    width: 75%;
+    transition: transform 0.3s ease-in-out;
+}
+
+button:hover{
+    cursor: pointer;
+    transform: scale(1.1,1.1);
+}
+
