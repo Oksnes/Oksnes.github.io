@@ -14,7 +14,7 @@ upgrp1.addEventListener("click", buyupgrp1)
 upgrp2.addEventListener("click", buyupgrp2)
 buybp1.addEventListener("click", buybuybp1)
 buybp2.addEventListener("click", buybuybp2)
-rebirthlayer.addEventListener("click", doarebirth)
+rebirthlayer.addEventListener("click", doARebirth)
 
 function buyupgrp1(){
     if (points>=10){
@@ -90,7 +90,7 @@ function buybuybp2(){
     } 
 }
 
-function doarebirth(){
+function doARebirth(){
  //ADD STUFF HERE
 }
 
