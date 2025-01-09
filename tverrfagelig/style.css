@@ -20,7 +20,7 @@ main{
 
 #header{
     height: 100px;
-    border-bottom: 10px black solid; 
+    border-bottom: 5px black solid; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,11 +29,15 @@ main{
 
 #main{
     text-align: center;
-    border-bottom: 10px black solid;
+    background-color: white;
+    overflow-y:auto;
+    scrollbar-width: none;
+    height: 470px;
 }
 
 #pages {
     background-color:lightgray;
+    border-bottom: 5px black solid;
 }
 
 nav ul{
@@ -58,3 +62,9 @@ nav ul li a{
 
 }
 
+@media screen and (max-width: 800px) {
+    main {
+        height: 100%;
+        width: 100%;
+    }
+}
