@@ -25,6 +25,12 @@ main{
     align-items: center;
     justify-content: center;
     background-color:lightgray;
+    font-family: monospace;
+}
+
+#pages {
+    background-color:lightgray;
+    border-bottom: 5px black solid;
 }
 
 #main{
@@ -35,9 +41,14 @@ main{
     height: 470px;
 }
 
-#pages {
-    background-color:lightgray;
-    border-bottom: 5px black solid;
+#main p{
+    font-size: x-large;
+}
+
+.chartbox {
+    width:300px;
+    display: flex;
+    justify-self: center;
 }
 
 nav ul{
@@ -59,7 +70,6 @@ nav ul li a{
     padding:1.5rem;
     display: block;
     font-size: 1.5rem;
-
 }
 
 @media screen and (max-width: 800px) {
