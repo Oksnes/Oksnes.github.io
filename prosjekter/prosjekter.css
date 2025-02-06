@@ -93,6 +93,15 @@ main div a{
     margin: 10px;
 }
 
+.prosjektBig{
+    border: 5px solid black;
+    border-radius: 10px;
+    width: 600px;
+    height: 300px;
+    padding: 1rem;
+    margin: 10px;
+}
+
 .prosjekt img {
     max-width: auto;
 }
