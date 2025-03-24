@@ -3,57 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>prosjekter</title>
-    <link rel="icon" href="../bilder/prosjekter.ico" type="image/x-icon">
-    <link rel="stylesheet" href="prosjekter.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="../index.css">
+    <script src="../kode.js" defer></script>
 </head>
 <body>
-    <div class="grid-container">
-        <div class="item1">
-            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#5f6368"><path d="M140-160q-24 0-42-18t-18-42v-520q0-24 18-42t42-18h680q24 0 42 18t18 42v520q0 24-18 42t-42 18H140Zm0-60h461v-163H140v163Zm521 0h159v-386H661v386ZM140-443h461v-163H140v163Z" alt="Nettside icon"/></svg>
-            <h1 class="tittel">Prosjekter</h1>
+    <main>
+        <div id="header">
+            <h1>Hjemmeside</h1>
         </div>
-        <div class="item2">
+        <div id="navigation">
             <nav>
                 <ul>
                     <li><a href="#">Prosjekter</a></li>
                     <li><a href="../index.html">Hjem</a></li>
-                    <li><a href="#">something</a></li>
+                    <li><a id="screenjumper">Placeholder</a></li>
                 </ul>
             </nav>
         </div>
-        <div class="item3">
-            <main>
-                <div class="prosjekt">
-                    <a href="../engelskprosjekt/engelsk.html">Engelsk prosjekt</a>
-                    <a href="../engelskprosjekt/engelsk.html"><img src="../bilder/englishprojectpreview.png" alt="bilde til engelskprosjekt" width="256px"></a>
-                </div>
+        <div id="maincontent">
+            <h1 id="maincontentoverskrift">Prosjekter</h1>
 
-                <div class="prosjekt">
-                    <a href="../ssp/index.html">Stein Saks Papir</a>
-                    <a href="../ssp/index.html"><img src="../bilder/steinsakspapirpreview.png" alt="Bilde til steinsakspapirprosjekt" width="256px"></a>
+            <div class="prosjekt">
+                <h2><a href="../Paiclicker/index.html">Pai clicker</a></h2>
+                <div class="prosjektbeskrivelse">
+                    <p>Kopi av cookie clicker men med paier istedet.</p>
+                    
                 </div>
+            </div>
+            <div class="prosjekt">
+                <h2><a href="../engelskprosjekt/engelsk.html">Engelsk prosjekt</a></h2>
+                <div class="prosjektbeskrivelse">
+                    <p>Prosjekt om et land der de snakker engelsk.</p>
+                </div>
+            </div>
+            <div class="prosjekt">
+                <h2><a href="../Twine/Paskekrim/p_ske krim.html">Påske krim</a></h2>
+                <div class="prosjektbeskrivelse">
+                    <p>Tverfagelig prosjekt mellom teknologi forståelse og medie der vi lager en interaktiv historie i twine.</p>
+                </div>
+            </div>
+            <div class="prosjekt">
+                <h2><a href="../ssp/index.html">Stein saks papir</a></h2>
+                <div class="prosjektbeskrivelse">
+                    <p>Lite stein saks papir spill.</p>
+                </div>
+            </div>
+            <div class="prosjekt">
+                <h2><a href="../tverrfagelig/index.html">Tverfagelig prosjekt</a></h2>
+                <div class="prosjektbeskrivelse">
+                    <p>Tverfagelig prosjekt mellom naturfag, programering, engelsk og medie.</p>
+                </div>
+            </div>
 
-                <div class="prosjekt">
-                    <a href="../Paiclicker/index.html">Pie clicker</a>
-                    <a href="../Paiclicker/index.html"><img src="../bilder/placeholder.png" alt="bilde til pie clicker prosjekt" width="128px"></a>
-                </div>
-                
-                <div class="prosjekt">
-                    <a href="../utgame/index.html">Random Upgrade tree</a>
-                    <a href="../utgame/index.html"><img src="../bilder/placeholder.png" alt="bilde til upgrade tree prosjekt" width="128px"></a>
-                </div>
+            <h1 id="maincontentoverskrift">Uferdig</h1>
 
-                <div class="prosjekt">
-                    <a href="../tverrfagelig/index.html">Tverrfagelig</a>
-                    <a href="../tverrfagelig/index.html"><img src="../bilder/placeholder.png" alt="bilde til tverrfagelig prosjekt" width="128px"></a>
+            <div class="uferdigprosjekt">
+                <h2><a href="../utgame/index.html">Upgrade tree</a></h2>
+                <div class="uferdigprosjektbeskrivelse">
+                    <p>Upgrade tree spill som er uferdig</p>
                 </div>
-                <div class="prosjektBig" width="256">
-                    <iframe src="https://vlfksky-my.sharepoint.com/personal/e-alemou_iskule_no/_layouts/15/Doc.aspx?sourcedoc={0e93a5e9-a11c-47e2-b1fc-d47a5976cfb9}&amp;action=embedview&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">Dette er et innebygd <a target="_blank" href="https://office.com">Microsoft Office</a>-presentasjonen. Leveres av <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
-                </div>
-                
-            </main>
+            </div>
         </div>
+    </main>
 </body>
 </html>
-

@@ -1,54 +1,42 @@
 html, body{
-    height: 100%;
-    margin: 0;
+    height:100%;
     padding: 0;
+    margin: 0;
+    font-family: monospace;
 }
 
-#item1{ grid-area: header; }
-#item2{ grid-area: meny;}
-#item3{ grid-area: main;}
-#item4{ grid-area: footer;}
-
-
-
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas:
-        'header'
-        'meny'
-        'main'
-        'footer';
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
 }
 
-.tittel {
-    font-size: 2rem;
-    color: #666666;
+main {
+    width:50%;
+    color:white;
 }
 
-.grid-container > div {
-    font-size: 1.5rem;
-    padding: 1rem;
-}
-
-#item1 {
-    background: linear-gradient(270deg, #eaa052, #f5af64);
+#header{
     color: white;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* height: 100px; */
+    width:100%;
+    border: 5px #2f5162 solid;
+    border-radius: 5px;
 }
 
-#item2 {
-    background-color:#787878;
+nav {
+    border: 5px #51a8b1 solid;
+    border-radius: 5px;
+    /* height:50px; */
+    width: 100%;
 }
 
 nav ul{
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -56,16 +44,89 @@ nav ul{
 
 nav ul li a{
     text-decoration: none;
-    color:white;
-    padding:1.5rem;
-    display: block;
-}
-
-nav ul li a:hover{
-    background-color:#6a6a6a;
-}
-
-#item3 {
+    color:#3caae6;
+    font-size: 1.5rem;
+    padding:0 0.75em;
     text-align: center;
 }
 
+#maincontentoverskrift {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 15px;
+    border-bottom: 5px #2f516284 solid;
+}
+
+#maincontent {
+    /* height: 100%; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#screenjumper:hover {
+    cursor: pointer;
+}
+
+a {
+    color: #3caae6;
+    /* text-decoration: none; */
+}
+
+.prosjekt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px #2f5162 solid;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 1rem;
+    height: 100px;
+    color: #FFFFFF;
+    width:315px;
+    text-align: center;
+}
+
+.prosjektbeskrivelse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 5px #51a8b1 solid;
+    margin-left: 1rem;
+    padding: 1rem;
+    padding-left: 2rem;
+    height: 100%;
+    border-right: 0px;
+    max-width: 175px;
+    width:100%;
+}
+
+.uferdigprosjekt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px #622f36 solid;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 1rem;
+    height: 100px;
+    color: #FFFFFF;
+    width:315px;
+    text-align: center;
+}
+
+.uferdigprosjektbeskrivelse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 5px #b15151 solid;
+    margin-left: 1rem;
+    padding: 1rem;
+    padding-left: 2rem;
+    height: 100%;
+    border-right: 0px;
+    width:200px;
+}
