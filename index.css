@@ -131,3 +131,31 @@ a {
     border-right: 0px;
     width:200px;
 }
+
+.nyeprosjekt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px #2f6235 solid;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 1rem;
+    height: 100px;
+    color: #FFFFFF;
+    width:315px;
+    text-align: center;
+}
+
+.nyeprosjektbeskrivelse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 5px #51b163 solid;
+    margin-left: 1rem;
+    padding: 1rem;
+    padding-left: 2rem;
+    height: 100%;
+    border-right: 0px;
+    width:200px;
+}
