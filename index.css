@@ -26,6 +26,7 @@ main {
     width:100%;
     border: 5px #2f5162 solid;
     border-radius: 5px;
+    font-size: x-large;
 }
 
 nav {
