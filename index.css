@@ -2,13 +2,13 @@ html, body{
     height:100%;
     padding: 0;
     margin: 0;
-    font-family: monospace;
 }
 
 body {
     background-color: black;
     display: flex;
     justify-content: center;
+    font-family: monospace;
 }
 
 main {
@@ -51,14 +51,14 @@ nav ul li a{
     text-align: center;
 }
 
-#maincontentoverskrift {
+#MainContentOverskrift {
     text-align: center;
     width: 100%;
     padding-bottom: 15px;
     border-bottom: 5px #2f516284 solid;
 }
 
-#maincontent {
+#MainContent {
     /* height: 100%; */
     display: flex;
     justify-content: center;
@@ -75,7 +75,7 @@ a {
     /* text-decoration: none; */
 }
 
-.prosjekt{
+.Prosjekt{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,7 +89,7 @@ a {
     text-align: center;
 }
 
-.prosjektbeskrivelse{
+.ProsjektBeskrivelse{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,7 +104,7 @@ a {
     width:100%;
 }
 
-.uferdigprosjekt{
+.UferdigProsjekt{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,7 +118,7 @@ a {
     text-align: center;
 }
 
-.uferdigprosjektbeskrivelse{
+.UferdigProsjektBeskrivelse{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,7 +132,7 @@ a {
     width:200px;
 }
 
-.nyeprosjekt{
+.NyeProsjekt{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -146,7 +146,7 @@ a {
     text-align: center;
 }
 
-.nyeprosjektbeskrivelse{
+.NyeProsjektBeskrivelse{
     display: flex;
     justify-content: center;
     align-items: center;

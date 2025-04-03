@@ -63,7 +63,7 @@ app.get("/beskyttet", kreverInnlogging, (req, res) => {
 
 // Rute for å vise leggtilbil.html (kun for innloggede brukere)
 app.get("/registrerbil", kreverInnlogging, (req, res) => {
-    res.sendFile(__dirname + "/beskytta/leggtilbil.html");
+    res.sendFile(__dirname + "/public/leggtilbil.html");
 });
 
 // Rute for å legge til ein ny bil i databasen (SQL)
