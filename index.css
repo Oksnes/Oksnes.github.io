@@ -40,7 +40,8 @@ nav ul{
     list-style: none;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+    
 }
 
 nav ul li a{
@@ -73,6 +74,13 @@ nav ul li a{
 a {
     color: #3caae6;
     /* text-decoration: none; */
+}
+
+#Draggable {
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    top: 200px;
 }
 
 .Prosjekt{
@@ -158,4 +166,15 @@ a {
     height: 100%;
     border-right: 0px;
     width:200px;
+}
+
+@media screen and (max-width: 800px) {
+
+    main {
+        width: 80%;
+    }
+
+    nav ul li a{
+        font-size: 1.2rem;
+    }
 }
