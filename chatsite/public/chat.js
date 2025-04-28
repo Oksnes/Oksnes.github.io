@@ -48,35 +48,46 @@ async function fetchMeldinger(currentRomID) {
     const messageElement = document.createElement('div');
     const profileImg = document.createElement('img');
 
-    // Use profile image or default
+    // Bruk profilbilde eller standardbilde
     profileImg.src = msg.ProfilBilde || '/Standard-Profilbilde.jpg';
     profileImg.alt = `${msg.BrukerNavn} sitt profilbilde`;
     profileImg.style.width = '40px';
     profileImg.style.height = '40px';
     profileImg.style.marginRight = '10px';
+    // profileImg.style.borderRadius = '50%';
 
     const textElement = document.createElement('span');
     textElement.textContent = `${msg.BrukerNavn}: `;
 
-    const contentElement = document.createElement('span');
-    if (msg.Innhold.includes('<img')) {
-      // If the message contains an image tag, render it as HTML
-      const imageContainer = document.createElement('div');
-      imageContainer.innerHTML = msg.Innhold;
-      contentElement.append(imageContainer);
-    } else {
-      contentElement.textContent += msg.Innhold;
+    messageElement.append(profileImg, textElement);
+
+    // Legg til tekstinnhold hvis det finnes
+    if (msg.Innhold) {
+      const contentElement = document.createElement('span');
+      contentElement.textContent = msg.Innhold;
+      messageElement.append(contentElement);
     }
 
-    messageElement.append(profileImg, textElement, contentElement);
+    // Legg til bilde hvis det finnes
+    if (msg.BildeURL) {
+      const imageElement = document.createElement('img');
+      imageElement.src = msg.BildeURL;
+      imageElement.alt = 'Bilde sendt i chat';
+      imageElement.style.maxWidth = '200px';
+      imageElement.style.maxHeight = '200px';
+      imageElement.style.marginLeft = '10px';
+      messageElement.append(imageElement);
+    }
+
     messageContainer.append(messageElement);
   });
 }
 
-async function postMelding(Innhold, imageUrl) {
-  const body = imageUrl
-    ? { Innhold: `<img src="${imageUrl}" alt="Image" style="max-width: 200px; max-height: 200px;">` }
-    : { Innhold };
+async function postMelding(Innhold, BildeURL) {
+  const body = {
+    Innhold: Innhold || null,
+    BildeURL: BildeURL || null
+  };
 
   await fetch(`/Rom/${currentRomID}/Meldinger`, {
     method: 'POST',
@@ -92,12 +103,12 @@ document.getElementById('send-button').addEventListener('click', async (event) =
 
   const messageInput = document.getElementById('message-input');
   const imageUrlInput = document.getElementById('image-url-input');
-  const Innhold = messageInput.value;
-  const imageUrl = imageUrlInput.value;
+  const Innhold = messageInput.value.trim();
+  const BildeURL = imageUrlInput.value.trim();
 
-  if (Innhold.trim() === '' && imageUrl.trim() === '') return; // Avoid sending empty messages
+  if (!Innhold && !BildeURL) return; // Unngå å sende tomme meldinger
 
-  await postMelding(Innhold, imageUrl);
+  await postMelding(Innhold, BildeURL);
 
   messageInput.value = '';
   imageUrlInput.value = '';

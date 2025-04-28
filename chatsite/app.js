@@ -106,16 +106,16 @@ app.get('/Rom', (req, res) => {
 });
 
 app.post('/Rom/:RomID/Meldinger', (req, res) => {
-  const BrukerID = req.session.bruker?.id; // Safely access the user ID from the session
-  const { Innhold } = req.body;
+  const BrukerID = req.session.bruker?.id; // Hent bruker-ID fra session
+  const { Innhold, BildeURL } = req.body; // Hent tekst og bilde-URL fra forespørselen
   const { RomID } = req.params;
 
-  if (!BrukerID || !RomID || !Innhold) {
+  if (!BrukerID || !RomID || (!Innhold && !BildeURL)) {
     return res.status(400).json({ message: "Manglende data for å sende melding" });
   }
 
-  const stmt = db.prepare('INSERT INTO Meldinger (BrukerID, RomID, Innhold) VALUES (?, ?, ?)');
-  stmt.run(BrukerID, RomID, Innhold);
+  const stmt = db.prepare('INSERT INTO Meldinger (BrukerID, RomID, Innhold, BildeURL) VALUES (?, ?, ?, ?)');
+  stmt.run(BrukerID, RomID, Innhold || null, BildeURL || null);
 
   res.sendStatus(200);
 });
@@ -124,7 +124,7 @@ app.get('/Rom/:RomID/Meldinger', (req, res) => {
   const { RomID } = req.params;
 
   const stmt = db.prepare(`
-    SELECT Meldinger.Innhold, Bruker.BrukerNavn, Bruker.ProfilBilde
+    SELECT Meldinger.Innhold, Meldinger.BildeURL, Bruker.BrukerNavn, Bruker.ProfilBilde
     FROM Meldinger
     JOIN Bruker ON Meldinger.BrukerID = Bruker.BrukerID
     WHERE Meldinger.RomID = ?
