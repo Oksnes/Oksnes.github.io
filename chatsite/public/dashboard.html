@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update User</title>
+  <link rel="stylesheet" href="index.css">
+
+  <script>
+    async function EndreBrukerInfo(event) {
+      event.preventDefault(); // Forhindre standard form submit
+
+
+      const BrukerNavn = document.getElementById('BrukerNavn').value;
+      const Passord = document.getElementById('Passord').value;
+      const EPost = document.getElementById('EPost').value;
+      const ProfilBilde = document.getElementById('ProfilBilde').value;
+
+      const response = await fetch("/oppdaterBruker", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              BrukerNavn,
+              Passord,
+              EPost,
+              ProfilBilde
+          })
+      });
+
+      const result = await response.json();
+      alert(result.message);
+    };
+  </script>
+</head>
+<body>
+  <main>
+    <h1>Update User</h1>
+    <form onsubmit="EndreBrukerInfo(event)">
+      <label for="BrukerNavn">Brukernavn:</label>
+      <input type="text" id="BrukerNavn" name="BrukerNavn"><br>
+
+      <label for="Passord">Passord:</label>
+      <input type="password" id="Passord" name="Passord"><br>
+
+      <label for="EPost">Epost:</label>
+      <input type="text" id="EPost" name="EPost"><br>
+
+      <label for="ProfilBilde">Profilbilde:</label>
+      <input type="text" id="ProfilBilde" name="ProfilBilde"><br>
+
+      <button type="submit">Update User</button>
+    </form>
+</main>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>ADMIN PANEL</h1>
+
+
+        <div id="user-list-container">
+            <h2>Brukerliste</h2>
+            <ul id="user-list"></ul>
+          </div>
+
+
+        <div id="channel-container"> <!--Laget med hjelp fra Jo-Bjørnar V2-->
+            <select id="channel-select"></select>
+            <input id="new-channel-input" type="text" placeholder="New channel name">
+            <button id="create-channel-button">Create Channel</button>
+          </div>
+          <div id="chat-container">
+            <div id="message-container"></div>
+            <form>
+              <input id="message-input" type="text" placeholder="Skriv melding..." required>
+              <input id="image-url-input" type="text" placeholder="Kopier inn bilde URL (valgfritt)">
+              <button id="send-button">Send</button>
+            </form>
+          </div>
+
+    </main>
+
+</body>
+
+<style>
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(235, 235, 235);
+}
+
+main {
+    height: 80%;
+    width: 70%;
+    background: white;
+    text-align: center;
+    filter: drop-shadow(10px 10px rgb(162, 162, 162));
+    overflow-y:scroll;
+    -ms-overflow-style: none; /*Gjemmer scrollbar Edge*/
+    scrollbar-width: none; /*Gjemmer scrollbar Firefox*/
+}
+
+main::-webkit-scrollbar {  
+    display: none; /*Gjemmer scrollbar Chrome Safari Opera*/
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    width: 50%;
+    background: rgb(244, 244, 244);
+    border: 1px solid rgb(162, 162, 162);
+    border-radius:5px;
+}
+
+button {
+    width: 50%;
+    background: rgb(235, 235, 235);
+    border: 1px solid rgb(162, 162, 162);
+    border-radius:5px;
+    cursor: pointer;
+}
+
+#user-list{
+    justify-self: center;
+    width: 50%;
+    height:200px;
+    overflow-y: scroll;
+}
+li {
+    list-style: none;
+    margin: 5px 0;
+    padding: 5px;
+    background: rgb(244, 244, 244);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+li button {
+    width: 30%;
+}
+
+#chat-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#message-container {
+  height: 350px;
+  border: 1px solid #ccc;
+  overflow-y: scroll;
+
+  margin-bottom: 10px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+#message-container div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: #ccc 1px solid;
+}
+
+#message-container img {
+  margin-right: 10px;
+}
+
+#message-container div span.username {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+#message-input {
+  width: 100%;
+  padding: 5px;
+}
+
+#send-button {
+  width: 100%;
+  padding: 5px;
+  background: rgb(196, 196, 196);
+}
+</style>
+
+<script>
+//MED HJELP FRA COPILOT
+async function fetchBrukere() {
+  const response = await fetch('/admin/hentBrukere');
+  const brukere = await response.json();
+  const userList = document.getElementById('user-list');
+  userList.innerHTML = '';
+
+  brukere.forEach(bruker => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${bruker.BrukerNavn} (${bruker.BrukerID})`;
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Slett';
+    deleteButton.style.marginLeft = '10px';
+    deleteButton.addEventListener('click', () => slettBruker(bruker.BrukerID));
+
+    listItem.appendChild(deleteButton);
+    userList.appendChild(listItem);
+  });
+}
+
+async function slettBruker(BrukerID) {
+  const confirmed = confirm('Er du sikker på at du vil slette denne brukeren?');
+  if (!confirmed) return;
+
+  const response = await fetch(`/admin/slettBruker/${BrukerID}`, {
+    method: 'DELETE'
+  });
+
+  if (response.ok) {
+    alert('Bruker og meldinger slettet');
+    fetchBrukere();
+  } else {
+    const result = await response.json();
+    alert(result.message);
+  }
+}
+
+// Hent brukere når siden lastes
+fetchBrukere();
+
+//SAMME KODE SOM ER I CHAT.JS UNDER
+//SAMME KODE SOM ER I CHAT.JS UNDER
+//SAMME KODE SOM ER I CHAT.JS UNDER
+let currentRomID;
+
+async function fetchRom() {
+  const response = await fetch('/Rom');
+  const Rom = await response.json();
+  const channelSelect = document.getElementById('channel-select');
+
+  channelSelect.innerHTML = '';
+  Rom.forEach(Rom => {
+    const option = document.createElement('option');
+    option.value = Rom.RomID;
+    option.textContent = Rom.Navn;
+    channelSelect.append(option);
+  });
+
+if (Rom.length > 0) {
+  currentRomID = Rom[0].RomID;
+  fetchMeldinger(currentRomID);
+}
+}
+
+document.getElementById('create-channel-button').addEventListener('click', async () => {
+  const newChannelInput = document.getElementById('new-channel-input');
+  const channelName = newChannelInput.value;
+  await fetch('/Rom', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ Navn: channelName })
+  });
+  newChannelInput.value = '';
+  fetchRom();
+});
+
+async function fetchMeldinger(currentRomID) {
+  const response = await fetch(`/Rom/${currentRomID}/Meldinger`);
+  const meldinger = await response.json();
+  const messageContainer = document.getElementById('message-container');
+  messageContainer.innerHTML = '';
+
+  meldinger.forEach(msg => {
+    const messageElement = document.createElement('div');
+    const profileImg = document.createElement('img');
+
+    // Use profile image or default
+    profileImg.src = msg.ProfilBilde || '/Standard-Profilbilde.jpg';
+    profileImg.alt = `${msg.BrukerNavn} sitt profilbilde`;
+    profileImg.style.width = '40px';
+    profileImg.style.height = '40px';
+    profileImg.style.marginRight = '10px';
+
+    const textElement = document.createElement('span');
+    textElement.textContent = `${msg.BrukerNavn}: `;
+
+    const contentElement = document.createElement('span');
+    if (msg.Innhold.includes('<img')) {
+      // If the message contains an image tag, render it as HTML
+      const imageContainer = document.createElement('div');
+      imageContainer.innerHTML = msg.Innhold;
+      contentElement.append(imageContainer);
+    } else {
+      contentElement.textContent += msg.Innhold;
+    }
+
+    messageElement.append(profileImg, textElement, contentElement);
+    messageContainer.append(messageElement);
+  });
+}
+
+async function postMelding(Innhold, imageUrl) {
+  const body = imageUrl
+    ? { Innhold: `<img src="${imageUrl}" alt="Image" style="max-width: 200px; max-height: 200px;">` }
+    : { Innhold };
+
+  await fetch(`/Rom/${currentRomID}/Meldinger`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  });
+}
+
+document.getElementById('send-button').addEventListener('click', async (event) => {
+  event.preventDefault();
+
+  const messageInput = document.getElementById('message-input');
+  const imageUrlInput = document.getElementById('image-url-input');
+  const Innhold = messageInput.value;
+  const imageUrl = imageUrlInput.value;
+
+  if (Innhold.trim() === '' && imageUrl.trim() === '') return; // Avoid sending empty messages
+
+  await postMelding(Innhold, imageUrl);
+
+  messageInput.value = '';
+  imageUrlInput.value = '';
+  fetchMeldinger(currentRomID);
+});
+
+document.getElementById('channel-select').addEventListener('change', (event) => {
+  currentRomID = event.target.value;
+  fetchMeldinger(currentRomID);
+});
+
+fetchRom();
+
+setInterval(() => {
+  if (currentRomID) {
+    fetchMeldinger(currentRomID);
+  }
+}, 1000);
+</script>
+</html>

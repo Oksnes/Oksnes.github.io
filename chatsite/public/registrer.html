@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test: Legg til person</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+
+        async function Registrer(event) {
+            event.preventDefault(); // Forhindre standard form-innsending
+
+            const BrukerNavn = document.getElementById("BrukerNavn").value;
+            const Passord = document.getElementById("Passord").value;
+            const EPost = document.getElementById("EPost").value;
+            const ProfilBilde = document.getElementById("ProfilBilde").value;
+
+            const response = await fetch("/registrerBruker", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    BrukerNavn,
+                    Passord,
+                    EPost,
+                    ProfilBilde
+                })
+            });
+
+            const result = await response.json();
+            alert(result.message);
+        }
+    </script>
+</head>
+<body>
+    <main>
+        <h1>Legg til bruker</h1>
+        <form onsubmit="Registrer(event)">
+            
+            <label for="BrukerNavn">Brukernavn:</label>
+            <input type="text" id="BrukerNavn" name="BrukerNavn" required><br>
+
+            <label for="passord">Passord:</label>
+            <input type="password" id="Passord" name="Passord" required><br>
+
+            <label for="EPost">E-Post:</label>
+            <input type="text" id="EPost" name="EPost" required><br>
+
+            <label for="ProfilBilde">LIM IN LENKE TIL PROFILBILDE (NOT REQUIRED):</label>
+            <input type="Text" id="ProfilBilde" name="ProfilBilde" ><br>
+
+            <button type="submit">Legg til person</button>
+        </form>
+        <p> Har bruker allerede? <a href="login.html">Login</a></p>
+    </main>
+</body>
+</html>

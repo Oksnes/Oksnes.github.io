@@ -1,0 +1,44 @@
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(235, 235, 235);
+}
+
+main {
+    height: 60%;
+    width: 50%;
+    background: white;
+    text-align: center;
+    filter: drop-shadow(10px 10px rgb(162, 162, 162));
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    width: 50%;
+    background: rgb(244, 244, 244);
+    border: 1px solid rgb(162, 162, 162);
+    border-radius:5px;
+}
+
+button {
+    width: 50%;
+    background: rgb(235, 235, 235);
+    border: 1px solid rgb(162, 162, 162);
+    border-radius:5px;
+    cursor: pointer;
+}
