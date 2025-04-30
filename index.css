@@ -9,6 +9,7 @@ body {
     display: flex;
     justify-content: center;
     font-family: monospace;
+    overflow-y: scroll;
 }
 
 main {
@@ -61,7 +62,6 @@ nav ul li a{
 #MainContent {
     /* height: 100%; */
     display: flex;
-    /* justify-content: center; */
     flex-wrap: wrap;
     width: 100%;
 }
@@ -71,7 +71,7 @@ nav ul li a{
     padding-right: 1rem;
     padding-left: 1rem;
     padding-bottom: 1rem;
-    width:45%;
+    width:45%;;
 }
 
 #screenjumper:hover {
@@ -88,6 +88,14 @@ a {
     cursor: pointer;
     display: flex;
     top: 200px;
+}
+
+#MainContentProsjekter {
+    /* height: 100%; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .Prosjekt{

@@ -24,20 +24,6 @@ if (Rom.length > 0) {
 }
 }
 
-document.getElementById('create-channel-button').addEventListener('click', async () => {
-  const newChannelInput = document.getElementById('new-channel-input');
-  const channelName = newChannelInput.value;
-  await fetch('/Rom', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ Navn: channelName })
-  });
-  newChannelInput.value = '';
-  fetchRom();
-});
-
 async function fetchMeldinger(currentRomID) {
   const response = await fetch(`/Rom/${currentRomID}/Meldinger`);
   const meldinger = await response.json();

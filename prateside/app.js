@@ -12,41 +12,41 @@ app.use(express.json());
 
 // Middleware for å håndtere sessions
 app.use(session({
-  secret: 'your-secret-key',
+  secret: 'supersecretkey', // Endre denne til en sterk hemmelighet i produksjon
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false } // Sett til true hvis du bruker HTTPS
 }));
 
 function kreverInnlogging(req, res, next) {
-  if (!req.session.bruker) {
-      return res.redirect("/login.html");
+  if (!req.session.bruker) { //Se om bruker er logget inn
+      return res.redirect("/login.html"); //send til login siden hvis du ikke er logget inn
   }
   next();
 }
 
-app.post("/registrerBruker", async (req, res) => {
-  const {BrukerNavn, Passord, EPost, ProfilBilde} = req.body;
+app.post("/registrerBruker", async (req, res) => { //rute for å registrere ny bruker
+  const {BrukerNavn, Passord, EPost, ProfilBilde} = req.body; //hente dataen fra regisrer.html
 
   // Hash passordet med bcrypt
   const saltRounds = 10; // Antall runder med hashing
   const hashPassord = await bcrypt.hash(Passord, saltRounds);
 
-  const stmt = db.prepare("INSERT INTO Bruker (BrukerNavn, Passord, EPost, ProfilBilde ) VALUES (?, ?, ?, ?)");
-  const info = stmt.run(BrukerNavn, hashPassord, EPost, ProfilBilde );
+  const stmt = db.prepare("INSERT INTO Bruker (BrukerNavn, Passord, EPost, ProfilBilde ) VALUES (?, ?, ?, ?)"); //sende inn brukeren til databasen
+  const info = stmt.run(BrukerNavn, hashPassord, EPost, ProfilBilde ); //infoen til å send inn
 
-  res.json({ message: "Ny bruker lagt til", info });  
+  res.json({ message: "Ny bruker lagt til", info }); //statusmelding
 });
 
 app.post ("/oppdaterBruker", async (req, res) => {
   const BrukerID = req.session.bruker.id; // Hent bruker-ID fra session
-  const {BrukerNavn, Passord, EPost, ProfilBilde} = req.body;
+  const {BrukerNavn, Passord, EPost, ProfilBilde} = req.body; //info fra dashboard.html
 
   // Hash passordet med bcrypt
   const saltRounds = 10; // Antall runder med hashing
   const hashPassord = await bcrypt.hash(Passord, saltRounds);
 
-  const stmt = db.prepare("UPDATE Bruker SET BrukerNavn = ?, Passord = ?, EPost = ?, ProfilBilde = ? WHERE BrukerID = ?");
+  const stmt = db.prepare("UPDATE Bruker SET BrukerNavn = ?, Passord = ?, EPost = ?, ProfilBilde = ? WHERE BrukerID = ?"); //oppdaterer brukerifoen basert på brukerID-en til personen som er logget inn
   const info = stmt.run(BrukerNavn, hashPassord, EPost, ProfilBilde, BrukerID);
 
   res.json({ message: "Bruker oppdatert"});
@@ -54,37 +54,37 @@ app.post ("/oppdaterBruker", async (req, res) => {
 
 // Rute for innlogging
 app.post ("/login", async (req, res) => {
-  const { BrukerNavn, Passord } = req.body;
+  const { BrukerNavn, Passord } = req.body; //data fra login.html
 
-  const bruker = db.prepare("SELECT * FROM bruker WHERE BrukerNavn = ?").get(BrukerNavn);
-  if (!bruker) {
+  const bruker = db.prepare("SELECT * FROM bruker WHERE BrukerNavn = ?").get(BrukerNavn); //Ser I databasen for brukeren jeg prøver å logge meg inn som
+  if (!bruker) { //Om brukeren ikke finnes i databasen
       return res.status(401).json({ message: "Feil Brukernavn eller passord" });
   }
 
-  const passordErGyldig = await bcrypt.compare(Passord, bruker.Passord);
-  if (!passordErGyldig) {
+  const passordErGyldig = await bcrypt.compare(Passord, bruker.Passord); //Ser om passordet du skriver er det samme som er kryptert i databasen
+  if (!passordErGyldig) { //om passordet ikke stemmer
       return res.status(401).json({ message: "Feil Brukernavn eller passord" });
   }
 
   // Lagre brukerdata i session
-  req.session.bruker = { id: bruker.BrukerID, brukernavn: bruker.BrukerNavn };
+  req.session.bruker = { id: bruker.BrukerID, brukernavn: bruker.BrukerNavn }; //gir sessionene din disse dataene
   res.json({ message: "Innlogging vellykket" });
 });
 
 // Rute for å logge ut
-app.post("/logout", (req, res) => {
-  req.session.destroy();
+app.post("/logout", (req, res) => { //DENNE KODEN BRUKER JEG IKKE NÅ
+  req.session.destroy(); //stopper sessionen
   res.json({ message: "Du er logget ut" });
 });
 
-// Rute for å vise dashboard.html (kun for innlogga brukarar)
-app.get("/dashboard", kreverInnlogging,(req, res) => {
+// Rute for å vise chat.html eller admin (kun for innlogga brukarar)
+app.get("/dashboard", kreverInnlogging,(req, res) => { 
   const BrukerID = req.session.bruker.id;
   const admin = db.prepare('SELECT * FROM Bruker WHERE BrukerID = ?').get(BrukerID) // Hent admin-status fra databasen
   if (admin.Admin == "true") {
     res.sendFile(__dirname + "/beskyttet/admin.html"); // Hvis brukeren er admin, send dem til admin-siden
   } else {
-    return res.redirect("/chat.html"); // Ellers send dem til dashboard-siden
+    return res.redirect("/chat.html"); // Ellers send dem til chat-siden
   }
 });
 
