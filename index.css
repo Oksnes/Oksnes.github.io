@@ -39,7 +39,6 @@ nav {
 nav ul{
     list-style: none;
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
     
 }
@@ -48,8 +47,8 @@ nav ul li a{
     text-decoration: none;
     color:#3caae6;
     font-size: 1.5rem;
-    padding:0 0.75em;
     text-align: center;
+    padding-right: 1.5rem;
 }
 
 #MainContentOverskrift {
@@ -62,9 +61,17 @@ nav ul li a{
 #MainContent {
     /* height: 100%; */
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-wrap: wrap;
     width: 100%;
+}
+
+#aboutMe {
+    border: #2f5162 solid 5px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    width:45%;
 }
 
 #screenjumper:hover {
@@ -172,6 +179,10 @@ a {
 
     main {
         width: 80%;
+    }
+
+    nav ul{
+        justify-content: center;
     }
 
     nav ul li a{
