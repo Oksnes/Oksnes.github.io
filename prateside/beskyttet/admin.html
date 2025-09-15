@@ -119,11 +119,11 @@ li button {
   height: 350px;
   border: 1px solid #ccc;
   overflow-y: scroll;
+  overflow-x: hidden;
 
   margin-bottom: 10px;
   text-align: left;
   padding-left: 10px;
-  
 }
 
 #message-container div {
@@ -131,6 +131,14 @@ li button {
   align-items: center;
   margin-bottom: 10px;
   border-bottom: #ccc 1px solid;
+  flex-wrap: wrap;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+#message-container span, #message-container img {
+  max-width: 100%;
+  word-break: break-word;
 }
 
 #message-container img {
