@@ -1,0 +1,198 @@
+html, body{
+    height:100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    font-family: monospace;
+}
+
+main {
+    width:50%;
+    color:white;
+}
+
+#header{
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100px; */
+    width:100%;
+    border: 5px #2f5162 solid;
+    border-radius: 5px;
+    font-size: x-large;
+}
+
+nav {
+    border: 5px #51a8b1 solid;
+    border-radius: 5px;
+    /* height:50px; */
+    width: 100%;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+nav ul li a{
+    text-decoration: none;
+    color:#3caae6;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-right: 1.5rem;
+}
+
+#MainContentOverskrift {
+    text-align: center;
+    width: 100%;
+    /* padding-bottom: 15px; */
+    border-bottom: 5px #2f516284 solid;
+}
+
+#MainContent {
+    /* height: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#aboutMe {
+    border: #2f5162 solid 5px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    width:45%;;
+}
+
+#screenjumper:hover {
+    cursor: pointer;
+}
+
+a {
+    color: #3caae6;
+    /* text-decoration: none; */
+}
+
+#Draggable {
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    top: 200px;
+}
+
+#MainContentProsjekter {
+    /* height: 100%; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.Prosjekt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px #2f5162 solid;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 1rem;
+    height: 100px;
+    color: #FFFFFF;
+    width:315px;
+    text-align: center;
+}
+
+.ProsjektBeskrivelse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 5px #51a8b1 solid;
+    margin-left: 1rem;
+    padding: 1rem;
+    padding-left: 2rem;
+    height: 100%;
+    border-right: 0px;
+    max-width: 175px;
+    width:100%;
+}
+
+.UferdigProsjekt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px #622f36 solid;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 1rem;
+    height: 100px;
+    color: #FFFFFF;
+    width:315px;
+    text-align: center;
+}
+
+.UferdigProsjektBeskrivelse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 5px #b15151 solid;
+    margin-left: 1rem;
+    padding: 1rem;
+    padding-left: 2rem;
+    height: 100%;
+    border-right: 0px;
+    width:200px;
+}
+
+.NyeProsjekt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px #2f6235 solid;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 1rem;
+    height: 100px;
+    color: #FFFFFF;
+    width:315px;
+    text-align: center;
+}
+
+.NyeProsjektBeskrivelse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 5px #51b163 solid;
+    margin-left: 1rem;
+    padding: 1rem;
+    padding-left: 2rem;
+    height: 100%;
+    border-right: 0px;
+    width:200px;
+}
+
+@media screen and (max-width: 800px) {
+
+    main {
+        width: 80%;
+    }
+
+    nav ul{
+        justify-content: center;
+    }
+
+    nav ul li a{
+        font-size: 1.2rem;
+    }
+}
