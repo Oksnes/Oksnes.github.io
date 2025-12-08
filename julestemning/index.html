@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="scene">
+        <div id="snow" aria-hidden="true"></div>
+        <div id="ground"></div>
+
+        <!-- Platforms -->
+        <div class="platform" style="left:600px; top:350px; width:140px; height:14px"></div>
+        <div class="platform" style="left:1000px; top:500px; width:160px; height:14px"></div>
+        <div class="platform" style="left:300px;  top:200px; width:110px; height:14px"></div>
+
+        <div id="prize" aria-hidden="true"><img src="presents.webp" width="128px"></div>
+
+        <div id="santa" aria-label="Julenisse" role="img"><img src="julenisse.png" width="256px"></div>
+        <div id="hud">
+            <div id="instructions">Bruk piltaster eller A/D for å flytte, Mellomrom/↑ for å hoppe</div>
+        </div>
+        <div id="controls">
+            <button id="left" class="ctl">◀</button>
+            <button id="jump" class="ctl">⤒</button>
+            <button id="right" class="ctl">▶</button>
+        </div>
+    </div>
+</body>
+</html>
