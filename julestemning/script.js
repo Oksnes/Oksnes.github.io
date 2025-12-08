@@ -40,7 +40,7 @@ let JUMP_SPEED = 18;  // start litt lavere
         // randomized size, horizontal start, horizontal drift, duration
         const size = Math.round(6 + Math.random() * 22); // px
         const left = Math.random() * 100; // %
-        const duration = (8 + Math.random() * 28); // seconds
+        const duration = (8 + Math.random() * 14); // seconds
         const sway = Math.round(10 + Math.random() * 100); // px
         const dx = Math.round((Math.random() - 0.5) * 80); // final horizontal offset
 
